@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>FR Apparel</title>
+
+    <!-- library aos untuk animasi -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="style/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top" aria-label="">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo-nav.svg" alt="" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item active">
+                    </li>
+                    <li class="nav-item mr-auto">
+                    </li>
+                </ul>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item mr-auto">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <!-- Desktop Menu -->
+                <ul class="navbar-nav d-none d-lg-flex">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            <img src="/images/icon-user2.jpg" alt="" class="rounded-circle mr-2 profile-picture">
+                            Hi, Fachrio
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="dashboard.html" class="dropdown-item">Dashboard</a>
+                            <a href="dashboard-account.html" class="dropdown-item">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item">Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link d-inline-block mt-1">
+                            <img src="/images/icon-cart-empty.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav d-block d-lg-none">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Hi, Fachrio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cart.html" class="nav-link d-inline-block">
+                            Cart
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content page-product-details">
+        <section class="apparel-breadcrumbs" data-aos="fade-right" data-aos-delay="100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Product Details
+                                </li>
+                                <a href="/" class="breadcrumb-item">
+                                    <li>
+                                        Home
+                                    </li>
+                                </a>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="apparel-gallery" id="gallery">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8" data-aos="zoom-in">
+                        <transition name="slide-fade" mode="out-in">
+                            <img :key="photos[activePhoto].id" :src="photos[activePhoto].url" class="w-100 main-image"
+                                alt="" />
+                        </transition>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row">
+                            <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
+                                data-aos="zoom-in" data-aos-delay="100">
+                                <a href="#" @click="changeActive(index)">
+                                    <img :src="photo.url" class="w-100 thumbnail-image"
+                                        :class="{ active: index == activePhoto }" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="apparel-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12" data-aos="fade-up">
+                        <h5>Kaos Combed 24s</h5>
+                        <div class="apparel-price">Rp 35.000</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-10 container-apparel" data-aos="fade-up">
+                        <div class="container-details">
+                            <form action="" class="form">
+                                <div class="row">
+                                    <div class="col-12 col-md-5" data-aos="fade-right" data-aos-delay="100">
+                                        <select class="apparel-size my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                            <option selected disabled>Size</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 col-md-5" data-aos="fade-left" data-aos-delay="200">
+                                        <select class="apparel-color my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                            <option selected disabled>Colour</option>
+                                            <option value="White">White</option>
+                                            <option value="Black">Black</option>
+                                            <option value="MintGreen">Mint Green</option>
+                                            <option value="Pink">Pink</option>
+                                            <option value="Red">Red</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 col-md-2">
+                                        <button type="submit" class="btn btn-cust d-block">Add Cart</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-10 deskripsi" data-aos="fade-up">
+                        <p>Kaos polos adalah jenis pakaian yang sederhana dan serbaguna yang telah menjadi salah satu
+                            pilihan fashion paling
+                            populer di dunia. Kaos ini dikenal dengan desainnya yang minimalis dan tanpa hiasan atau
+                            cetakan, biasanya terbuat dari
+                            bahan katun yang nyaman dipakai. Keindahan kaos polos terletak pada kemampuannya untuk
+                            beradaptasi dengan berbagai gaya
+                            dan kesempatan. Anda dapat mengenakannya sebagai pakaian sehari-hari yang santai atau
+                            menggabungkannya dengan aksesori
+                            dan pakaian lainnya untuk menciptakan tampilan yang lebih formal.</p>
+                        <p>Salah satu keunggulan utama dari kaos polos adalah kenyamanannya. Bahan katun yang digunakan
+                            dalam pembuatannya
+                            memberikan tekstur yang lembut dan sirkulasi udara yang baik, menjadikannya pilihan yang
+                            ideal untuk cuaca hangat. Kaos
+                            polos juga sangat serbaguna dalam hal gaya. Anda dapat mengenakannya dengan celana jeans,
+                            celana pendek, atau bahkan
+                            bawahan formal seperti celana panjang atau rok untuk menciptakan penampilan yang
+                            berbeda-beda. Kaos polos juga tersedia
+                            dalam berbagai warna, sehingga Anda dapat memilih sesuai dengan selera pribadi dan kebutuhan
+                            gaya Anda.</p>
+                        <p>Selain itu, kaos polos adalah pilihan yang paling sesuai untuk personalisasi. Anda dapat
+                            menambahkan desain atau pesan
+                            khusus pada kaos tersebut dengan mudah, menjadikannya pilihan yang populer untuk acara
+                            khusus, promosi bisnis, atau
+                            hadiah. Dengan segala kelebihan ini, kaos polos adalah elemen dasar dalam lemari pakaian
+                            setiap orang, karena selalu
+                            siap digunakan dalam berbagai kesempatan dan dapat disesuaikan sesuai selera pribadi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="apparel-review">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-8 mt-3 mb-3">
+                        <h5>Customer Review (3)</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img src="/images/icon-testimonial-1.png" class="mr-3 rounded-circle" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-2 mb-1">Hazza Risky</h5>
+                                    I thought it was not good for living room. I really happy
+                                    to decided buy this product last week now feels like homey.
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img src="/images/icon-testimonial-2.png" class="mr-3 rounded-circle" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-2 mb-1">Anna Sukkirata</h5>
+                                    Color is great with the minimalist concept. Even I thought it was
+                                    made by Cactus industry. I do really satisfied with this.
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img src="/images/icon-testimonial-3.png" class="mr-3 rounded-circle" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-2 mb-1">Dakimu Wangi</h5>
+                                    When I saw at first, it was really awesome to have with.
+                                    Just let me know if there is another upcoming product like this.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="pt-4 mt-2">
+                        &copy; 2023 FRApparel. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="/vendor/vue/vue.js"></script>
+    <script>
+        var gallery = new Vue({
+            el: '#gallery',
+            mounted() {
+                AOS.init();
+            },
+            data: {
+                activePhoto: 0,
+                photos: [
+                    {
+                        id: 1,
+                        url: "/images/product-details-1.png"
+                    },
+                    {
+                        id: 2,
+                        url: "/images/product-details-2.png"
+                    },
+                    {
+                        id: 3,
+                        url: "/images/product-details-3.png"
+                    },
+                    {
+                        id: 4,
+                        url: "/images/product-details-4.png"
+                    },
+                ],
+            },
+            methods: {
+                changeActive(id) {
+                    this.activePhoto = id;
+                },
+            },
+        })
+    </script>
+    <script src="script/navbar-scroll.js"></script>
+</body>
+
+</html>
