@@ -1,0 +1,120 @@
+.page-product-details {
+  h5 {
+    color: #0c0d36;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .apparel-gallery {
+    margin-top: 20px;
+
+    img {
+      border-radius: 10px;
+    }
+
+    .thumbnail-image {
+      margin-bottom: 25px;
+      border: 2px solid transparent;
+
+      &:hover,
+      &.acive {
+        border: 2px solid #ff7158;
+      }
+    }
+  }
+  .apparel-details {
+    margin-top: 13px;
+
+    h5 {
+      color: #000;
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .apparel-price {
+      margin-top: 8px;
+      margin-bottom: 10px;
+      color: #f20202;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .container-apparel {
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px 9px;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+      .container-details {
+        select {
+          width: 100%;
+          font-size: 20px;
+        }
+
+        button {
+          --b: 3px; /* border thickness */
+          --s: 0.15em; /* size of the corner */
+          --c: #bd5532;
+
+          padding: calc(0.4em + var(--s)) calc(0.6em + var(--s));
+          color: var(--c);
+          --_p: var(--s);
+          background: conic-gradient(
+              from 90deg at var(--b) var(--b),
+              #0000 90deg,
+              var(--c) 0
+            )
+            var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
+            calc(100% - var(--b) - 2 * var(--_p));
+          transition: 0.3s linear, color 0s, background-color 0s;
+          outline: var(--b) solid #0000;
+          outline-offset: 0.2em;
+        }
+        button:hover,
+        button:focus-visible {
+          --_p: 0px;
+          outline-color: var(--c);
+          outline-offset: 0.05em;
+        }
+        button:active {
+          background: var(--c);
+          color: #fff;
+        }
+
+        @media (max-width: 767.98px) {
+          select {
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    .deskripsi {
+      margin-top: 20px;
+    }
+  }
+  .apparel-review {
+    .media {
+      img {
+        max-width: 60px;
+      }
+    }
+    .media-body {
+      color: #525252;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 180%; /* 28.8px */
+      margin-bottom: 20px;
+
+      h5 {
+        color: #0c0d36;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+  }
+}
