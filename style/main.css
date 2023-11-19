@@ -9194,6 +9194,21 @@ a.text-dark:hover, a.text-dark:focus {
 }
 body {
   font-family: "Poppins", sans-serif;
+  --sb-track-color: #7b7b7b;
+  --sb-thumb-color: #b2ff00;
+  --sb-size: 11px;
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 11px;
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 11px;
 }
 
 .page-content {
@@ -9889,7 +9904,7 @@ h5 {
   .cotton-20s .card,
   .kaos-polo .card {
     overflow: visible;
-    width: 41vw;
+    width: 100%;
     height: 200px;
   }
 }
@@ -10194,8 +10209,8 @@ h5 {
   color: #c5c5c5;
 }
 .page-dashboard .list-group-item.active {
-  background: linear-gradient(270deg, rgba(255, 113, 88, 0.32) 2%, rgba(255, 255, 255, 0) 100%);
-  border-right: 4px solid #ff7158;
+  background: linear-gradient(270deg, rgba(167, 225, 34, 0.32) 2%, rgba(255, 255, 255, 0) 100%);
+  border-right: 4px solid #b2ff00;
   color: #0c0d36;
 }
 @media (min-width: 768px) {
@@ -10263,6 +10278,13 @@ h5 {
   right: 0;
 }
 
+:root {
+  --arrow-bg: rgba(255, 255, 255, 0.3);
+  --arrow-icon: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cg transform="rotate(180 12 12)"%3E%3Cg id="evaArrowUpFill0"%3E%3Cg id="evaArrowUpFill1"%3E%3Cpath id="evaArrowUpFill2" fill="currentColor" d="M16.21 16H7.79a1.76 1.76 0 0 1-1.59-1a2.1 2.1 0 0 1 .26-2.21l4.21-5.1a1.76 1.76 0 0 1 2.66 0l4.21 5.1A2.1 2.1 0 0 1 17.8 15a1.76 1.76 0 0 1-1.59 1Z"%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+  --option-bg: white;
+  --select-bg: rgba(255, 255, 255, 0.2);
+}
+
 .page-product-details h5 {
   color: #0c0d36;
   font-size: 18px;
@@ -10297,44 +10319,54 @@ h5 {
   font-size: 24px;
   font-weight: 500;
 }
-.page-product-details .apparel-details .container-apparel {
-  border-radius: 8px;
-  background: #fff;
-  padding: 6px 9px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+.page-product-details .apparel-details .apparel-option select {
+  /* Reset */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  /* Personalize */
+  width: 23rem;
+  padding: 1rem 4rem 1rem 1rem;
+  background: var(--arrow-icon) no-repeat right 0.8em center/1.4em, linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  color: black;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  /* Remove IE arrow */
+  /* Remove focus outline */
+  /* <option> colors */
 }
-.page-product-details .apparel-details .container-apparel .container-details select {
-  width: 100%;
-  font-size: 20px;
+.page-product-details .apparel-details .apparel-option select::-ms-expand {
+  display: none;
 }
-.page-product-details .apparel-details .container-apparel .container-details button {
-  --b: 3px; /* border thickness */
-  --s: 0.15em; /* size of the corner */
-  --c: #bd5532;
-  padding: calc(0.4em + var(--s)) calc(0.6em + var(--s));
-  color: var(--c);
-  --_p: var(--s);
-  background: conic-gradient(from 90deg at var(--b) var(--b), rgba(0, 0, 0, 0) 90deg, var(--c) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2 * var(--_p)) calc(100% - var(--b) - 2 * var(--_p));
-  transition: 0.3s linear, color 0s, background-color 0s;
-  outline: var(--b) solid rgba(0, 0, 0, 0);
-  outline-offset: 0.2em;
+.page-product-details .apparel-details .apparel-option select:focus {
+  outline: none;
 }
-.page-product-details .apparel-details .container-apparel .container-details button:hover,
-.page-product-details .apparel-details .container-apparel .container-details button:focus-visible {
-  --_p: 0px;
-  outline-color: var(--c);
-  outline-offset: 0.05em;
+.page-product-details .apparel-details .apparel-option select option {
+  color: inherit;
+  background-color: var(--option-bg);
 }
-.page-product-details .apparel-details .container-apparel .container-details button:active {
-  background: var(--c);
-  color: #fff;
-}
-@media (max-width: 767.98px) {
-  .page-product-details .apparel-details .container-apparel .container-details select {
-    width: 100%;
-    font-size: 16px;
-    margin-top: 10px;
+@media (max-width: 991.98px) {
+  .page-product-details .apparel-details .apparel-option select {
+    width: 95%;
   }
+}
+.page-product-details .apparel-details button {
+  padding: 0.6em 1em;
+  border: 4px solid #fa725a;
+  transition: ease-in-out 0.3s;
+  background-color: transparent;
+  color: #fa725a;
+  font-weight: bolder;
+  font-size: 16px;
+}
+.page-product-details .apparel-details button:hover {
+  transform: scale(1.2) rotate(10deg);
+  background-color: #fa725a;
+  color: white;
 }
 .page-product-details .apparel-details .deskripsi {
   margin-top: 20px;
