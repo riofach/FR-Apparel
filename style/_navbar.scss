@@ -2,7 +2,7 @@
   padding-top: 15px;
 
   @include media-breakpoint-down(md) {
-    background-color: #fff !important;
+    background-color: #fefefe !important;
   }
 
   .nav-item {
@@ -10,6 +10,7 @@
       @include media-breakpoint-up(lg) {
         margin-left: 10px;
         margin-right: 10px;
+        color: $color-font;
       }
     }
   }
@@ -33,6 +34,6 @@
 }
 
 .navbar-fixed-top.scrolled {
-  background-color: #fff !important;
+  background-color: #fefefe !important;
   transition: background-color 200ms linear;
 }

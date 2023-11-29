@@ -9192,7 +9192,41 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+.dark-mode {
+  background-color: #040d12;
+  transition: all 0.5s ease-in-out;
+}
+.dark-mode h5 {
+  color: #fff;
+}
+@media (max-width: 991.98px) {
+  .dark-mode .navbar-store {
+    background-color: #040d12 !important;
+  }
+}
+.dark-mode .navbar-store .custom-toggler.navbar-toggler {
+  border-color: lightgreen;
+}
+.dark-mode .navbar-store .custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.dark-mode .navbar-store .nav-item .nav-link {
+  color: #fff;
+}
+.dark-mode .navbar-fixed-top.scrolled {
+  background-color: #001524 !important;
+  transition: background-color 200ms linear;
+}
+.dark-mode .content {
+  box-shadow: 0px 0px 10px 1px #edf2fc;
+}
+.dark-mode footer p {
+  color: #fff;
+}
+
 body {
+  background-color: #fff;
+  color: #212122;
   font-family: "Poppins", sans-serif;
   --sb-track-color: #7b7b7b;
   --sb-thumb-color: #b2ff00;
@@ -9219,12 +9253,131 @@ body::-webkit-scrollbar-thumb {
   background-color: #f3f3f3;
 }
 
+.slider-mode {
+  /* The switch - the box around the slider */
+  /* Hide default HTML checkbox */
+  /* The slider */
+}
+.slider-mode .switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+.slider-mode .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider-mode .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+.slider-mode .slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+.slider-mode input:checked + .slider {
+  background-color: #303136;
+}
+.slider-mode input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: #303136;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+.loader:before {
+  animation: before8 2s infinite;
+}
+.loader:after {
+  animation: after6 2s infinite;
+}
+@keyframes before8 {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+  }
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  100% {
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+}
+@keyframes after6 {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+  }
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+  }
+  100% {
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
 footer {
   border-top: 1px solid #e4e4e4;
   margin-top: 130px;
 }
 footer p {
-  color: #979797;
+  color: #212122;
 }
 footer ul.list-inline li.list-inline-item a {
   color: #ff9900; /* Ganti dengan kode warna yang Anda inginkan */
@@ -9240,13 +9393,14 @@ footer ul.list-inline li.list-inline-item a:hover {
 }
 @media (max-width: 991.98px) {
   .navbar-store {
-    background-color: #fff !important;
+    background-color: #fefefe !important;
   }
 }
 @media (min-width: 992px) {
   .navbar-store .nav-item .nav-link {
     margin-left: 10px;
     margin-right: 10px;
+    color: #212122;
   }
 }
 .navbar-store .profile-picture {
@@ -9266,12 +9420,13 @@ footer ul.list-inline li.list-inline-item a:hover {
 }
 
 .navbar-fixed-top.scrolled {
-  background-color: #fff !important;
+  background-color: #fefefe !important;
   transition: background-color 200ms linear;
 }
 
 h5 {
   font-size: 28px;
+  color: #212122;
 }
 
 .cotton-30s .card {

@@ -1,6 +1,61 @@
-body {
-  font-family: "Poppins", sans-serif;
+$background-light: #fff;
+$color-font-light: #212122;
+$shadow-card-light: #000000ee;
 
+$background-dark: #040d12;
+$color-font-dark: #fff;
+$shadow-card-dark: #edf2fc;
+
+$background: $background-light;
+$color-font: $color-font-light;
+$shadow-card: $shadow-card-light;
+
+.dark-mode {
+  background-color: $background-dark;
+  transition: all 0.5s ease-in-out;
+
+  h5 {
+    color: $color-font-dark;
+  }
+
+  .navbar-store {
+    @include media-breakpoint-down(md) {
+      background-color: $background-dark !important;
+    }
+
+    .custom-toggler.navbar-toggler {
+      border-color: lightgreen;
+    }
+    .custom-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .nav-item {
+      .nav-link {
+        color: $color-font-dark;
+      }
+    }
+  }
+  .navbar-fixed-top.scrolled {
+    background-color: #001524 !important;
+    transition: background-color 200ms linear;
+  }
+
+  .content {
+    box-shadow: 0px 0px 10px 1px $shadow-card-dark;
+  }
+
+  footer {
+    p {
+      color: $color-font-dark;
+    }
+  }
+}
+
+body {
+  background-color: $background;
+  color: $color-font;
+  font-family: "Poppins", sans-serif;
   --sb-track-color: #7b7b7b;
   --sb-thumb-color: #b2ff00;
   --sb-size: 11px;
@@ -28,12 +83,156 @@ body {
   background-color: #f3f3f3;
 }
 
+.slider-mode {
+  /* The switch - the box around the slider */
+  .switch {
+    display: block;
+    --width-of-switch: 3.5em;
+    --height-of-switch: 2em;
+    /* size of sliding icon -- sun and moon */
+    --size-of-icon: 1.4em;
+    /* it is like a inline-padding of switch */
+    --slider-offset: 0.3em;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f4f5;
+    transition: 0.4s;
+    border-radius: 30px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon, 1.4em);
+    width: var(--size-of-icon, 1.4em);
+    border-radius: 20px;
+    left: var(--slider-offset, 0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: #303136;
+  }
+
+  input:checked + .slider:before {
+    left: calc(
+      100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em))
+    );
+    background: #303136;
+    /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+  }
+}
+
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+  }
+
+  &:before {
+    animation: before8 2s infinite;
+  }
+  &:after {
+    animation: after6 2s infinite;
+  }
+
+  @keyframes before8 {
+    0% {
+      width: 0.5em;
+      box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75),
+        -1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+
+    35% {
+      width: 2.5em;
+      box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75),
+        0 0.5em rgba(111, 202, 220, 0.75);
+    }
+
+    70% {
+      width: 0.5em;
+      box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75),
+        1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+
+    100% {
+      box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75),
+        -1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+  }
+
+  @keyframes after6 {
+    0% {
+      height: 0.5em;
+      box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75),
+        -0.5em -1em rgba(233, 169, 32, 0.75);
+    }
+
+    35% {
+      height: 2.5em;
+      box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75),
+        -0.5em 0 rgba(233, 169, 32, 0.75);
+    }
+
+    70% {
+      height: 0.5em;
+      box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75),
+        -0.5em 1em rgba(233, 169, 32, 0.75);
+    }
+
+    100% {
+      box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75),
+        -0.5em -1em rgba(233, 169, 32, 0.75);
+    }
+  }
+}
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
 footer {
   border-top: 1px solid #e4e4e4;
   margin-top: 130px;
 
   p {
-    color: #979797;
+    color: $color-font;
   }
 
   ul.list-inline li.list-inline-item a {

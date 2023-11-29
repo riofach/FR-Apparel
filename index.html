@@ -14,18 +14,19 @@
   <link href="style/main.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="">
   <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/images/logo-nav.svg" alt="" />
+        <img src="/images/logo-nav.svg" alt="" id="logo" />
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse collapse-cust" id="navbarResponsive">
         <ul class="navbar-nav ml-auto ">
           <li class="nav-item active">
           </li>
@@ -33,7 +34,7 @@
           </li>
         </ul>
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item mr-auto">
@@ -140,7 +141,7 @@
 
           </div>
           <div class="col-6 col-md-3 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <a href="/product-details.html" class="cotton-24s">
+            <a href="/product-details.html" class="cotton-24s mx-auto">
               <div class="card">
                 <div class="content">
                   <div class="back">
@@ -241,7 +242,7 @@
             </a>
 
           </div>
-          <div class="col-6 col-md-3 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-6 col-md-3 col-lg-3 mb-4 mr-auto" data-aos="fade-up" data-aos-delay="300">
             <a href="/product-details.html" class="kaos-polo">
               <div class="card">
                 <div class="content">
@@ -338,6 +339,21 @@
     </section>
   </div>
 
+  <div class="slider-mode fixed-bottom">
+    <div class="container-fluid">
+      <div class="row float-right">
+        <div class="col-12">
+          <label class="switch">
+            <input type="checkbox" id="mode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader"></div>
+
   <footer>
     <div class="container">
       <div class="row">
@@ -357,6 +373,63 @@
     AOS.init();
   </script>
   <script src="script/navbar-scroll.js"></script>
+  <script src="script/loader.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Cek status mode gelap dari localStorage saat halaman dimuat
+      var isDarkMode = localStorage.getItem("darkMode");
+
+      // Terapkan mode gelap jika statusnya adalah 'enabled'
+      if (isDarkMode === "disabled") {
+        document.body.classList.add("dark-mode");
+        document.getElementById("mode").checked = false;
+        updateSliderAppearance(false);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var mode = document.getElementById("mode");
+      var logo = document.getElementById("logo");
+
+      mode.onclick = function () {
+        document.body.classList.toggle("dark-mode");
+
+        var newLogo = document.body.classList.contains("dark-mode") ?
+          "/images/logo-dark-nav.svg" : "/images/logo-nav.svg";
+
+        logo.src = newLogo;
+
+        // Perbarui tampilan slider berdasarkan status mode gelap
+        updateSliderAppearance(document.body.classList.contains("dark-mode"));
+
+        var isDarkMode = document.body.classList.contains("dark-mode") ? "enabled" : "disabled";
+        localStorage.setItem("darkMode", isDarkMode);
+      };
+
+      // Fungsi untuk memperbarui tampilan slider berdasarkan status mode gelap
+      function updateSliderAppearance(isDarkMode) {
+        var slider = document.querySelector(".slider");
+        if (!slider) return;
+
+        var sliderBefore = slider.querySelector(":before");
+        if (!sliderBefore) return;
+
+        if (isDarkMode) {
+          slider.style.backgroundColor = "#303136";
+          sliderBefore.style.left = "calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)))";
+          sliderBefore.style.background = "#303136";
+          sliderBefore.style.boxShadow = "inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb";
+        } else {
+          slider.style.backgroundColor = "#f4f4f5";
+          sliderBefore.style.left = "var(--slider-offset, 0.3em)";
+          sliderBefore.style.background = "linear-gradient(40deg, #ff0080, #ff8c00 70%)";
+          sliderBefore.style.boxShadow = "";
+        }
+      }
+    });
+  </script>
+
 </body>
 
 </html>
