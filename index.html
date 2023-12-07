@@ -18,7 +18,7 @@
   <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/images/logo-nav.svg" alt="" id="logo" />
+        <img src="/images/logoFrApparel1.png" alt="" id="logo" />
       </a>
 
       <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
@@ -233,15 +233,9 @@
 
     document.addEventListener("DOMContentLoaded", function () {
       var mode = document.getElementById("mode");
-      var logo = document.getElementById("logo");
 
       mode.onclick = function () {
         document.body.classList.toggle("dark-mode");
-
-        var newLogo = document.body.classList.contains("dark-mode") ?
-          "/images/logo-dark-nav.svg" : "/images/logo-nav.svg";
-
-        logo.src = newLogo;
 
         // Perbarui tampilan slider berdasarkan status mode gelap
         updateSliderAppearance(document.body.classList.contains("dark-mode"));

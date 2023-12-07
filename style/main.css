@@ -10293,6 +10293,49 @@ h5 {
   color: #0c0d36;
   margin-bottom: 20px;
 }
+.page-dashboard .section-content .cta {
+  border: none;
+  background: none;
+  text-decoration: none;
+}
+.page-dashboard .section-content .cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+.page-dashboard .section-content .cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+.page-dashboard .section-content .cta:hover svg {
+  transform: translateX(0);
+}
+.page-dashboard .section-content .cta:active svg {
+  transform: scale(0.9);
+}
+.page-dashboard .section-content .hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+.page-dashboard .section-content .hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.page-dashboard .section-content .cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 .page-dashboard .section-content h5 {
   font-size: 18px;
   line-height: 27px;
