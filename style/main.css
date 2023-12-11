@@ -9429,7 +9429,10 @@ h5 {
   color: #212122;
 }
 
-.cotton-30s .card {
+a.cotton-30s {
+  text-decoration: none;
+}
+a.cotton-30s .card {
   width: 100%;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -9437,7 +9440,7 @@ h5 {
   border-radius: 6px;
   text-decoration: none;
 }
-.cotton-30s .card-image {
+a.cotton-30s .card-image {
   background-image: url("/images/t-shirt-30s.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -9449,49 +9452,56 @@ h5 {
   /* Set an appropriate height */
   border-radius: 6px 6px 0 0;
 }
-.cotton-30s .card-image:hover {
+a.cotton-30s .card-image:hover {
   transform: scale(0.98);
 }
-.cotton-30s .category {
+a.cotton-30s .category {
   text-transform: uppercase;
   font-size: 0.7em;
   font-weight: 600;
   color: rgb(63, 121, 230);
   padding: 10px 7px 0;
+  text-decoration: none;
 }
-.cotton-30s .category:hover {
+a.cotton-30s .category:hover {
   cursor: pointer;
 }
-.cotton-30s .heading {
+a.cotton-30s .heading {
   font-weight: 600;
   color: rgb(88, 87, 87);
   padding: 7px;
+  text-decoration: none;
 }
-.cotton-30s .heading:hover {
+a.cotton-30s .heading:hover {
   cursor: pointer;
 }
-.cotton-30s .author {
+a.cotton-30s .author {
   color: gray;
   font-weight: 400;
   font-size: 15px;
   padding-top: 20px;
+  text-decoration: none;
 }
-.cotton-30s .name {
+a.cotton-30s .name {
   font-weight: 600;
   color: red;
+  text-decoration: none;
 }
-.cotton-30s .name:hover {
+a.cotton-30s .name:hover {
   cursor: pointer;
 }
 
-.cotton-24s .card {
+a.cotton-24s {
+  text-decoration: none;
+}
+a.cotton-24s .card {
   width: 100%;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 0.4em;
   border-radius: 6px;
 }
-.cotton-24s .card-image {
+a.cotton-24s .card-image {
   background-image: url("/images/t-shirt-24s.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -9503,49 +9513,52 @@ h5 {
   /* Set an appropriate height */
   border-radius: 6px 6px 0 0;
 }
-.cotton-24s .card-image:hover {
+a.cotton-24s .card-image:hover {
   transform: scale(0.98);
 }
-.cotton-24s .category {
+a.cotton-24s .category {
   text-transform: uppercase;
   font-size: 0.7em;
   font-weight: 600;
   color: rgb(63, 121, 230);
   padding: 10px 7px 0;
 }
-.cotton-24s .category:hover {
+a.cotton-24s .category:hover {
   cursor: pointer;
 }
-.cotton-24s .heading {
+a.cotton-24s .heading {
   font-weight: 600;
   color: rgb(88, 87, 87);
   padding: 7px;
 }
-.cotton-24s .heading:hover {
+a.cotton-24s .heading:hover {
   cursor: pointer;
 }
-.cotton-24s .author {
+a.cotton-24s .author {
   color: gray;
   font-weight: 400;
   font-size: 15px;
   padding-top: 20px;
 }
-.cotton-24s .name {
+a.cotton-24s .name {
   font-weight: 600;
   color: red;
 }
-.cotton-24s .name:hover {
+a.cotton-24s .name:hover {
   cursor: pointer;
 }
 
-.cotton-20s .card {
+a.cotton-20s {
+  text-decoration: none;
+}
+a.cotton-20s .card {
   width: 100%;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 0.4em;
   border-radius: 6px;
 }
-.cotton-20s .card-image {
+a.cotton-20s .card-image {
   background-image: url("/images/t-shirt-20s.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -9557,49 +9570,52 @@ h5 {
   /* Set an appropriate height */
   border-radius: 6px 6px 0 0;
 }
-.cotton-20s .card-image:hover {
+a.cotton-20s .card-image:hover {
   transform: scale(0.98);
 }
-.cotton-20s .category {
+a.cotton-20s .category {
   text-transform: uppercase;
   font-size: 0.7em;
   font-weight: 600;
   color: rgb(63, 121, 230);
   padding: 10px 7px 0;
 }
-.cotton-20s .category:hover {
+a.cotton-20s .category:hover {
   cursor: pointer;
 }
-.cotton-20s .heading {
+a.cotton-20s .heading {
   font-weight: 600;
   color: rgb(88, 87, 87);
   padding: 7px;
 }
-.cotton-20s .heading:hover {
+a.cotton-20s .heading:hover {
   cursor: pointer;
 }
-.cotton-20s .author {
+a.cotton-20s .author {
   color: gray;
   font-weight: 400;
   font-size: 15px;
   padding-top: 20px;
 }
-.cotton-20s .name {
+a.cotton-20s .name {
   font-weight: 600;
   color: red;
 }
-.cotton-20s .name:hover {
+a.cotton-20s .name:hover {
   cursor: pointer;
 }
 
-.kaos-polo .card {
+a.kaos-polo {
+  text-decoration: none;
+}
+a.kaos-polo .card {
   width: 100%;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 0.4em;
   border-radius: 6px;
 }
-.kaos-polo .card-image {
+a.kaos-polo .card-image {
   background-image: url("/images/polo-shirt.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -9611,38 +9627,38 @@ h5 {
   /* Set an appropriate height */
   border-radius: 6px 6px 0 0;
 }
-.kaos-polo .card-image:hover {
+a.kaos-polo .card-image:hover {
   transform: scale(0.98);
 }
-.kaos-polo .category {
+a.kaos-polo .category {
   text-transform: uppercase;
   font-size: 0.7em;
   font-weight: 600;
   color: rgb(63, 121, 230);
   padding: 10px 7px 0;
 }
-.kaos-polo .category:hover {
+a.kaos-polo .category:hover {
   cursor: pointer;
 }
-.kaos-polo .heading {
+a.kaos-polo .heading {
   font-weight: 600;
   color: rgb(88, 87, 87);
   padding: 7px;
 }
-.kaos-polo .heading:hover {
+a.kaos-polo .heading:hover {
   cursor: pointer;
 }
-.kaos-polo .author {
+a.kaos-polo .author {
   color: gray;
   font-weight: 400;
   font-size: 15px;
   padding-top: 20px;
 }
-.kaos-polo .name {
+a.kaos-polo .name {
   font-weight: 600;
   color: red;
 }
-.kaos-polo .name:hover {
+a.kaos-polo .name:hover {
   cursor: pointer;
 }
 
